@@ -216,7 +216,7 @@ impl PciDriver for PciDriverE1000 {
 
         // 创建 PciDeviceE1000 的实例
         let pci_device = Arc::new(PciDeviceE1000 {
-            common_device: device.clone(),
+            common_device: device,
             base: 0,
             mac_address: aster_network::EthernetAddr([0; 6]),
             header: VirtioNetHdr::default(),
