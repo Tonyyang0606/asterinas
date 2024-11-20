@@ -1,3 +1,4 @@
+workspace = { members = ["comps/e1000d"] }
 [package]
 name = "aster-nix"
 version = "0.1.0"
