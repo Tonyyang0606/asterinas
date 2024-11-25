@@ -209,17 +209,18 @@ impl PciDriver for PciDriverE1000 {
             10,
             50,
             DmaDirection::Bidirectional,
-            false,
+            false
         );
 
         // 获取设备的 MAC 地址，假设可以从设备配置空间读取
       
-
+        let bar=device.bar_manager();
+        println!("{:?}",bar0);
         // 创建 PciDeviceE1000 的实例
         let pci_device = Arc::new(PciDeviceE1000 {
             common_device: device,
             base: 0,
-            mac_address: aster_network::EthernetAddr([0x52, 0x54, 0x00, 0x12, 0x34, 0x56]),
+            mac_address: aster_network::EthernetAddr([0, 0, 0, 0, 0, 0]),
             header: VirtioNetHdr::default(),
             caps: DeviceCapabilities::default(),
             receive_ring: Vec::with_capacity(64),
